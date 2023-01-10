@@ -7,10 +7,12 @@ pipeline {
                 git branch:"main",url:"https://github.com/srinath-17/Micro_services.git"
             }
         }
-      stage("Run serverip.sh"){
-           steps{
-             sh " chmod -x ${home}/serverip.sh"
-             sh "${home}/./serverip.sh"
+        stage("Run serverip.sh"){
+            steps{
+                sh " chmod +x ${home}/serverip.sh"
+                sh "${home}/./serverip.sh"
+           }
+        }
         stage("build Docker image"){
             steps{
                 sh "docker rm -f uppusrinath/zuul:${BUILD_NUMBER} "
@@ -20,7 +22,7 @@ pipeline {
         
         stage("Create a container"){
             steps{
-                sh "docker run -d -p 9999:9999 --name cart uppusrinath/zuul:${BUILD_NUMBER} "
+                sh "docker run -d -p 9999:9999 --name zuul uppusrinath/zuul:${BUILD_NUMBER} "
             }
         }
     }
