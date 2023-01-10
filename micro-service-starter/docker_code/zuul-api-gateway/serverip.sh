@@ -7,4 +7,4 @@ PUBLIC_IP=$(curl -s https://api.ipify.org)
 
 # Print the public IP address
 echo "Your public IP address is: $PUBLIC_IP"
-sed -i 's/34.125.160.118/$PUBLIC_IP/g' $home/application.yml
+sed -i 's/${34.125.160.118}/${PUBLIC_IP}/g' $home/application.yml
