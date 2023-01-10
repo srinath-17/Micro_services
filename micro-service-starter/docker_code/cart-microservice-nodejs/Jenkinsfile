@@ -1,0 +1,27 @@
+def home="/var/lib/jenkins/workspace/ms-cart/micro-service-starter/docker_code/cart-microservice-nodejs"
+pipeline {
+    agent any
+    stages{
+        stage("checkout"){
+            steps{
+                git branch:"main",url:"https://github.com/srinath-17/Micro_services.git"
+            }
+        }
+        stage("build Docker image"){
+            steps{
+                sh "docker rm -f uppusrinath/ms-cart:${BUILD_NUMBER} "
+                sh "docker build -t uppusrinath/ms-cart:${BUILD_NUMBER} ${home}"
+            }
+        }
+        stage("Deleteworkspace"){
+            steps{
+                deleteDir()
+            }
+        }
+        stage("Create a container"){
+            steps{
+                sh "docker run -d -p 1004:1004 --name cart uppusrinath/ms-cart:${BUILD_NUMBER} "
+            }
+        }
+    }
+}
