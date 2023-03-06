@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages{
+        stage("checkout"){
+            steps{
+                git branch:"main",url:"https://github.com/srinath-17/Micro_services.git"
+            }
+        }
+        stage("build Docker image"){
+            steps{
+                sh "docker rm -f uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER} "
+                sh "docker build -t uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER}"
+            }
+        }
+        
+        stage("Create a container"){
+            steps{
+                sh "docker run -d -p 9999:9999 --name zuul uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER} "
+            }
+        }
+    }
+}
