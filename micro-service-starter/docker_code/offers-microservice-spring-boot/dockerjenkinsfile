@@ -1,7 +1,9 @@
 def home="/var/lib/jenkins/workspace/offers-microservice-dockeragent/micro-service-starter/docker_code/offers-microservice-spring-boot"
 pipeline {
     agent {
-      docker { image 'openjdk:11.0.10-jre' }
+      docker { image 'openjdk:11.0.10-jre'
+               args '-v $HOME/.m2:/root/.m2'
+             }
      }
     stages{
         stage("checkout"){
