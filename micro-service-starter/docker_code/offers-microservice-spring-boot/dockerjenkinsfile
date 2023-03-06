@@ -11,7 +11,7 @@ pipeline {
         }
         stage("build Docker image"){
             steps{
-                sh "docker rm -f uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER} ${home}"
+                sh "docker rm -f uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER} ${home} || true"
                 sh "docker build -t uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER} ${home}"
             }
         }
