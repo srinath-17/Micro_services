@@ -1,4 +1,4 @@
-def home="workspace/offers-microservice-dockeragent/micro-service-starter/docker_code/offers-microservice-spring-boot"
+def home="/var/lib/jenkins/workspace/offers-microservice-dockeragent/micro-service-starter/docker_code/offers-microservice-spring-boot"
 pipeline {
     agent {
       docker { 
