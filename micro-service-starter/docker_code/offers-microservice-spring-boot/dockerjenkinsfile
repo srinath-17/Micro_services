@@ -1,1 +1,24 @@
-
+def home="/var/lib/jenkins/workspace/offers-microservice-spring-boot-dev/micro-service-starter/docker_code/offers-microservice-spring-boot"
+pipeline {
+    agent {
+      docker { image 'node:16-alpine' }
+     }
+    stages{
+        stage("checkout"){
+            steps{
+                git branch:"main",url:"https://github.com/srinath-17/Micro_services.git"
+            }
+        }
+        stage("build Docker image"){
+            steps{
+                sh "docker rm -f uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER} ${home}"
+                sh "docker build -t uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER} ${home}"
+            }
+        }
+        
+        stage("Create a container"){
+            steps{
+                sh "docker run -d -p 1001:1001 --name offers-microservice-spring-boot uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER}"
+            }
+        }
+    }
