@@ -1,4 +1,4 @@
-def home="/var/lib/jenkins/workspace/ms-cart/micro-service-starter/docker_code/zuul-api-gateway"
+def home="/var/lib/jenkins/workspace/Zuul-Api-Gateway/micro-service-starter/docker_code/zuul-api-gateway"
 pipeline {
     agent any
     stages{
