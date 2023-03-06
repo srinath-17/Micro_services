@@ -1,4 +1,4 @@
-def home="https://github.com/srinath-17/Micro_services/edit/main/micro-service-starter/docker_code/offers-microservice-spring-boot"
+def home="https://github.com/srinath-17/Micro_services"
 pipeline {
     agent any
     stages{
