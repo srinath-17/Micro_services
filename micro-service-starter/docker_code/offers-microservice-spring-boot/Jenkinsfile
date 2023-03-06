@@ -16,7 +16,7 @@ pipeline {
         
         stage("Create a container"){
             steps{
-                sh "docker run -d -p 9999:9999 --name zuul uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER}"
+                sh "docker run -d -p 1001:1001 --name offers-microservice-spring-boot uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER}"
             }
         }
     }
