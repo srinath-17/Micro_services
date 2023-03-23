@@ -22,7 +22,7 @@ pipeline {
         
         stage("Create a container"){
             steps{
-                sh "docker rm ${docker ps -a -q}"
+                sh "docker rm uppusrinath/zuul"
                 sh "docker run -d -p 9999:9999 --name zuul uppusrinath/zuul:${BUILD_NUMBER} "
             }
         }
