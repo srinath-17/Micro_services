@@ -8,5 +8,10 @@ pipeline{
                 
             }
         }
+        stage("Building Dockerfile"){
+            steps{
+                sh "docker build -t uppusrinath/ui:${BUILD_NUMBER} 
+            }
+        }
     }
 }
