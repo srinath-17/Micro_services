@@ -1,6 +1,6 @@
 FROM node:8.7-alpine
 LABEL maintainer="srinath@gamail.com"
-RUN  adduser uiapp --gecos "" --disabled-password
+RUN  adduser uiapp -g "" --disabled-password
 RUN echo "uiapp:password" |  chpasswd 
 WORKDIR /app
 COPY . .
