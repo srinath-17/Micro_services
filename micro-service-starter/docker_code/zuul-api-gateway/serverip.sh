@@ -3,8 +3,8 @@ home=/var/lib/jenkins/workspace/Zuul-Api-Gateway/micro-service-starter/docker_co
 chmod +x $home/application.yml
 
 # Get the public IP address
-PUBLIC_IP=$(curl -s https://api.ipify.org)
+#PUBLIC_IP=$(curl -s https://api.ipify.org)
 
 # Print the public IP address
-echo "Your public IP address is: $PUBLIC_IP"
-sed -i 's/${34.125.160.118}/${PUBLIC_IP}/g' $home/application.yml
+#echo "Your public IP address is: $PUBLIC_IP"
+#sed -i 's/${34.125.160.118}/${PUBLIC_IP}/g' $home/application.yml
