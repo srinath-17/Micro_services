@@ -15,8 +15,8 @@ pipeline {
         }
         stage("Push Docker Image"){
             steps{
-            withDockerRegistry('https://registry.example.com',credentialsId: '7e18793d-93fa-4542-b07a-35bd53676e90') {
-                sh "docker push uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER}"
+              sh " withDockerRegistry('https://registry.example.com',credentialsId: '7e18793d-93fa-4542-b07a-35bd53676e90') {
+                sh "docker push uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER}""
                  }
             }
         }
