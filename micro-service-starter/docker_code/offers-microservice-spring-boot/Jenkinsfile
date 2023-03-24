@@ -13,13 +13,14 @@ pipeline {
                 sh "docker build -t uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER} ${home}"
             }
         }
-        stage("Push Docker Image"){
-            steps{
-              sh " withDockerRegistry('https://registry.example.com',credentialsId: '7e18793d-93fa-4542-b07a-35bd53676e90') {
-                sh "docker push uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER}""
-                 }
-            }
-        }
+       stage('Push Docker Image') {
+          steps {
+            script {
+                 docker.withRegistry('https://registry.example.com', credentialsId: '7e18793d-93fa-4542-b07a-35bd53676e90'') {
+                                     docker.image("my-image:${env.BUILD_NUMBER}").push() }
+           }
+       }
+
           
         
         stage("Create a container"){
