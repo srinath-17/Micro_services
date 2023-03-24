@@ -16,7 +16,7 @@ pipeline {
        stage('Push Docker Image') {
           steps {
             script {
-                 docker.withRegistry('https://registry.example.com', '7e18793d-93fa-4542-b07a-35bd53676e90') {
+                 docker.withRegistry('7e18793d-93fa-4542-b07a-35bd53676e90') {
                          docker.image("uppusrinath/offers-microservice-spring-boot:${env.BUILD_NUMBER}").push()
                       }
             }
