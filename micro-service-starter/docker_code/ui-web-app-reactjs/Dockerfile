@@ -11,7 +11,7 @@ RUN useradd -m uiapp
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/community" >> /etc/apk/repositories
 
 # Install npm
-RUN apk update && apk add nodejs npm
+RUN apk update && apk add --no-cache nodejs npm
 
 # Set the working directory to /app
 WORKDIR /app
