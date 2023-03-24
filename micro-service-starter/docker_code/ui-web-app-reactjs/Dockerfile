@@ -7,6 +7,9 @@ RUN apk add --no-cache shadow
 # Create a new user named 'mantainer'
 RUN useradd -m uiapp
 
+# Add the community repository to the package manager configuration
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/community" >> /etc/apk/repositories
+
 # Install npm
 RUN apk update && apk add nodejs npm
 
