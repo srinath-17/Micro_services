@@ -1,1 +1,18 @@
-
+//Jenkinsfile= micro-service-starter/kubernetes_code/ui-web-app-reactjs/Jenkinsfile//
+def contextpath="micro-service-starter/kubernetes_code/ui-web-app-reactjs"
+pipeline{
+    agent any
+    stages{
+        stage("checkout scm"){
+            steps{
+                 checkout scm
+                
+            }
+        }
+        stage("Building Dockerfile"){
+            steps{
+                sh "docker build -t uppusrinath/ui:${BUILD_NUMBER} ${contextpath}  "
+            }
+        }
+    }
+}
