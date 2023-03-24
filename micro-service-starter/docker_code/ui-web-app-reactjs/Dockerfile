@@ -1,7 +1,6 @@
 FROM node:8.7-alpine
 LABEL maintainer="srinath@gamail.com"
-RUN  adduser uiapp -g "" --disabled-password
-RUN echo "uiapp:password" |  chpasswd 
+RUN adduser uiapp -D -g '' && passwd -d uiapp
 WORKDIR /app
 COPY . .
 RUN npm install
