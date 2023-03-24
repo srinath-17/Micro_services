@@ -1,5 +1,7 @@
 FROM node:latest
 
+RUN apk update
+
 #Adding useradd by installing shadow package
 RUN apk add --no-cache shadow
 
