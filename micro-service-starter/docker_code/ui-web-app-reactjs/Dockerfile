@@ -1,4 +1,4 @@
-FROM node:8.7-alpine
+FROM node:latest
 
 #Adding useradd by installing shadow package
 RUN apk add --no-cache shadow
