@@ -1,5 +1,5 @@
 //Jenkinsfile= micro-service-starter/docker_code/ui-web-app-reactjs/Jenkinsfile//
-def contextpath = "micro-service-starter/docker_code/ui-web-app-reactjs"
+def contextpath="micro-service-starter/docker_code/ui-web-app-reactjs"
 pipeline{
     agent any
     stages{
