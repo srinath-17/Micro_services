@@ -1,6 +1,6 @@
 FROM node:latest
 
-RUN apk update
+RUN apk update && sudo apt-get install apk-tools
 
 #Adding useradd by installing shadow package
 RUN apk add --no-cache shadow
@@ -13,7 +13,7 @@ RUN useradd -m uiapp
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/community" >> /etc/apk/repositories
 
 # Install npm
-RUN apk update && apk add --no-cache nodejs npm
+RUN  apk add --no-cache nodejs npm && apk update
 
 # Set the working directory to /app
 WORKDIR /app
