@@ -1,4 +1,5 @@
 //Jenkinsfile= micro-service-starter/docker_code/ui-web-app-reactjs/Jenkinsfile//
+def contextpath = micro-service-starter/docker_code/ui-web-app-reactjs
 pipeline{
     agent any
     stages{
@@ -10,7 +11,7 @@ pipeline{
         }
         stage("Building Dockerfile"){
             steps{
-                sh "docker build -t uppusrinath/ui:${BUILD_NUMBER}  micro-service-starter/docker_code/ui-web-app-reactjs"
+                sh "docker build -t uppusrinath/ui:${BUILD_NUMBER} ${contextpath}  "
             }
         }
     }
