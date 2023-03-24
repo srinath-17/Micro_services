@@ -1,5 +1,8 @@
 FROM node:8.7-alpine
 
+#Adding useradd by installing passwd package
+RUN apt-get update && apt-get install -y passwd
+
 # Create a new user named 'mantainer'
 RUN useradd -m uiapp
 
