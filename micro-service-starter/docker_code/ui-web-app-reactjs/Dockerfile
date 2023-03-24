@@ -1,6 +1,6 @@
 FROM node:8.7-alpine
 LABEL maintainer="srinath@gamail.com"
-RUN adduser -m uiapp 
+RUN adduser  uiapp 
 WORKDIR /app
 COPY . .
 RUN npm install
