@@ -13,9 +13,19 @@ pipeline {
                 sh "docker build -t uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER} ${home}"
             }
         }
+        stage("Push Docker Image"){
+            steps{
+            withDockerRegistry(credentialsId: '7e18793d-93fa-4542-b07a-35bd53676e90') {
+                sh "docker push uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER}"
+                 }
+            }
+        }
+          
         
         stage("Create a container"){
             steps{
+                sh " docker stop offers-microservice-spring-boot || true"
+                sh "docker rm offers-microservice-spring-boot || true "
                 sh "docker run -d -p 1001:1001 --name offers-microservice-spring-boot uppusrinath/offers-microservice-spring-boot:${BUILD_NUMBER}"
             }
         }
