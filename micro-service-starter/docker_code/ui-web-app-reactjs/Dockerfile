@@ -1,13 +1,14 @@
 FROM node:8.7-alpine
 
-#Adding useradd by installing passwd package
-RUN apt-get update && apt-get install -y passwd
+#Adding useradd by installing shadow package
+RUN apk add --no-cache shadow
+
 
 # Create a new user named 'mantainer'
 RUN useradd -m uiapp
 
 # Install npm
-RUN apt-get update && apt-get install -y npm
+RUN apk update && apk add nodejs npm
 
 # Set the working directory to /app
 WORKDIR /app
