@@ -1,0 +1,17 @@
+def home="micro-service-starter/kubernetes_code/offers-microservice-spring-boot"
+pipeline {
+    agent any
+    stages{
+        stage("checkout"){
+            steps{
+                checkou scm
+            }
+        }
+        stage("build Docker image"){
+            steps{
+                sh "docker rm -f uppusrinath/offer:${BUILD_NUMBER} || true" 
+                sh "docker build -t uppusrinath/offer:${BUILD_NUMBER} ${home}"
+            }
+        }
+    }
+}
