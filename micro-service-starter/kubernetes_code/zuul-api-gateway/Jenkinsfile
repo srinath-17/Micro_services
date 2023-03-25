@@ -1,4 +1,4 @@
-def home="/var/lib/jenkins/workspace/Zuul-Api-Gateway/micro-service-starter/kubernetes_code/zuul-api-gateway"
+def home="micro-service-starter/kubernetes_code/zuul-api-gateway/Dockerfile"
 pipeline {
     agent any
     stages{
