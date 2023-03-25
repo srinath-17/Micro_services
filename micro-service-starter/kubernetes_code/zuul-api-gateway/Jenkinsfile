@@ -1,4 +1,4 @@
-def home="micro-service-starter/kubernetes_code/zuul-api-gateway/Dockerfile"
+def home="micro-service-starter/kubernetes_code/zuul-api-gateway/"
 pipeline {
     agent any
     stages{
