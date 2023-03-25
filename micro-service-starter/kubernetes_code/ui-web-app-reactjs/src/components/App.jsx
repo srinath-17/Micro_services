@@ -15,6 +15,14 @@ const App = () => {
         .then(data => {
           console.log(data)
           setDetails(data.url)
+        }else {
+            console.error("Missing IP address or hostname in response:", data)
+            setError("Failed to retrieve IP address or hostname")
+          }
+        })
+        .catch(err => {
+          console.error("Error retrieving IP address or hostname:", err)
+          setError("Failed to retrieve IP address or hostname")
         });
   }
 
