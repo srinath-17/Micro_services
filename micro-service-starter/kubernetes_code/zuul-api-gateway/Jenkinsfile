@@ -1,0 +1,18 @@
+def home="/var/lib/jenkins/workspace/Zuul-Api-Gateway/micro-service-starter/kubernetes_code/zuul-api-gateway"
+pipeline {
+    agent any
+    stages{
+        stage("checkout"){
+            steps{
+                checkout scm
+            }
+        }
+        
+        stage("build Docker image"){
+            steps{
+                sh "docker rm -f uppusrinath/zuul_real:${BUILD_NUMBER} "
+                sh "docker build -t uppusrinath/zuul_real:${BUILD_NUMBER} ${home}"
+            }
+        }
+    }
+}
