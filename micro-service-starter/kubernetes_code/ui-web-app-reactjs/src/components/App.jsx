@@ -21,10 +21,15 @@ const App = () => {
   useEffect(()=>{
     getUserGeolocationDetails()
   },[])
-
+   
   const handleApiCall = async (e) => {
+  let url = `http://${details}:32470/${e.target.name}`;
+  // ...
+  }
+
+  //const handleApiCall = async (e) => {
     // const url = 'http://localhost:9999/'+e.target.name;
-    let url = 'http://'+details+':32470/'+e.target.name
+   // let url = 'http://'+details+':32470/'+e.target.name
 
     displayData.url=url
     let options = {}
